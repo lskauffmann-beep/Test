@@ -1,16 +1,57 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Titel der Seite</title>
-    <script src="myScript.js" defer></script>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Habit Tracker</h1>
-    <h2>Webentwicklung</h2>
-    <p class = "test">Hallo</p>
-     <p class = "test2" ></p>Wie gehts dir?</p>
-  </body>
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="myScript.js" defer></script>
+<link rel="stylesheet" href="styles.css" />
+<title>Rezeptgenerator</title>
+</head>
+
+<body>
+<header>
+  <h1>Rezeptgenerator</h1>
+  <nav class="mainNav">
+    <a href="./meineSeite.html" class="active">Startseite</a>
+    <a href="./Lieblingsrezepte.html">Lieblingsrezepte</a>
+  </nav>
+</header>
+
+
+<main>
+  <div class="header-section">
+<h2>Finde Rezepte mit den Zutaten,<br/> die du schon Zuhause hast!</h2>
+  <img
+    src="https://i.pinimg.com/1200x/35/5a/0f/355a0f4425493872182c70960df57ab0.jpg"
+    alt="Bowl mit buntem Gemüse"
+    class="Bowl" />
+    </div>
+
+    <div class="zutaten_hinzufügen">
+      <input type="text" id="ZutatenInput" placeholder="Zutat eingeben (z. B. Tomaten)">
+      <button id="addButton">Hinzufügen</button>
+    </div>
+
+    <ul id="Zutatenliste">
+      <li> Tomaten</li>
+      <li> Zucchini</li>
+      <li> Fussili</li>
+    </ul>
+
+    <button id="generiere">Generiere mir ein Rezept</button>
+
+    <img 
+    src="https://i.pinimg.com/736x/47/78/24/47782435807604a4b0eacfdcd439281b.jpg"
+    alt="Salat" 
+    class="Salat" />
+
+  
+  </main>
+
+  <footer>
+    <p> 2025 Rezeptgenerator-Projekt</p>
+    <p> Erstellt von Lisa Kauffmann</p>
+  </footer>
+</body>
 </html>
