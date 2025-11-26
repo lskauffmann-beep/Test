@@ -5,20 +5,34 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../styles.css" />
+
+  <script src="/nav.js" defer></script>
+  <script src="/fav.js" defer></script>
+
   <title>Zucchini-Pasta mit Tomatensoße</title>
 </head>
 
 <body>
+
+
+  <nav class="mainNav"></nav>
+
+
   <header>
     <h1>Zucchini-Pasta mit Tomatensoße 🍅</h1>
-    <nav class="mainNav">
-      <a href="../meineSeite.html">Startseite</a>
-      <a href="../Lieblingsrezepte.html" class="active">Lieblingsrezepte</a>
-    </nav>
+   
+    <div class="fav-container">
+    <button class="fav-btn" data-rezept="zucchini-pasta">❤️</button>
+    <span class="fav-text">Als Lieblingsrezept speichern</span>
+  </div>
+   
   </header>
 
   <main>
     <div class="rezept-detail rezept-zucchini">
+      <img src="https://i.pinimg.com/1200x/1c/3e/30/1c3e307ba6506d4234b8a35920953026.jpg" alt="Zucchini-Pasta"
+        class="rezeptbilder" />
+
       <h2>Zutaten</h2>
       <ul>
         <li>Zucchini</li>
@@ -37,14 +51,14 @@
       </p>
     </div>
 
-    <a href="../Lieblingsrezepte.html" class="back-link">← Zurück zu den Lieblingsrezepten</a>
+    <a href="../meineSeite.html" class="back-link">← Zurück zur Startseite</a>
   </main>
 
   <footer>
     <p>2025 Rezeptgenerator-Projekt</p>
     <p>Lisa Kauffmann</p>
   </footer>
+
 </body>
+
 </html>
-
-

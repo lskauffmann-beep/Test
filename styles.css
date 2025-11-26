@@ -1,8 +1,12 @@
-body { 
+body {
   background-color: #f0e6da;
   margin: 0;
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
 }
 
 header {
@@ -14,13 +18,14 @@ header {
 .mainNav {
   height: 30px;
   background: #4f6815;
+  text-align: center;
   padding-top: 7px;
   padding-left: 5px;
   margin-top: 20px;
   box-shadow: 4px 6px black;
 }
 
-a {
+nav a {
   font-size: 14px;
   color: white;
   padding: 0px 5px;
@@ -28,28 +33,39 @@ a {
 }
 
 .mainNav a.active {
-  background-color: #f84780;
+  background-color: #75070c;
   border-radius: 4px;
   padding: 5px 10px;
 }
 
 .header-section {
   display: flex;
-  align-items: center;
-  gap: 2rem;
   justify-content: space-between;
-  margin: 2rem auto;
-  flex-wrap: wrap;
+  gap: 4rem;
+  margin: 4rem auto;
+  padding: 0 2rem;
 }
 
 .header-section h2 {
-  color: #4f6815;
   flex: 1;
-  font-size: 2rem;
+  font-size: 2.4rem;
   line-height: 1.4;
-  text-align: left;
-  padding: 8rem;
+  color: #4f6815;
   margin: 0;
+  text-align: left;
+
+}
+
+@media (max-width: 800px) {
+  .header-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .header-section h2 {
+    text-align: center;
+  }
 }
 
 main {
@@ -60,7 +76,7 @@ main {
   margin-top: 2rem;
 }
 
-.zutaten-hinzufuegen {
+.zutaten-hinzufügen {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +92,7 @@ main {
 }
 
 #addButton {
-  background-color: #f84780;
+  background-color: #75070c;
   color: white;
   font-size: 1rem;
   padding: 0.7rem 1rem;
@@ -99,7 +115,8 @@ main {
   text-align: center;
 }
 
-.Bowl, .Salat {
+.Bowl,
+.Salat {
   width: 400px;
   max-width: 90%;
   height: auto;
@@ -108,13 +125,6 @@ main {
   margin: 1rem auto;
 }
 
-.rezeptbilder {
-  width: 160px;
-  height: auto;
-  border-radius: 10px;
-  margin-top: .5rem;
-  object-fit: cover;
-}
 
 footer {
   background-color: #4f6815;
@@ -134,19 +144,129 @@ footer {
   max-width: 1000px;
 }
 
+/* Karten (Lieblingsrezepte-Seite) */
 .rezept-karte {
-  background: white;
+  background: #FFEDAB;
+  color: black;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 1rem;
   width: 220px;
   margin: 2rem auto;
   transition: transform 0.2s;
+  height: 420px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-.rezept-karte h3 a {
+.rezept-karte img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.rezept-karte h3 {
   color: black;
+ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Detailseite */
+.rezept-detail {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.rezept-detail img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  object-fit: cover;
+}
+
+.rezept-detail h2 {
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  font-size: 1.6rem;
   font-weight: bold;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.rezept-detail ul {
+  text-align: left;
+  margin: 0 auto 1.5rem;
+  width: fit-content;
+  line-height: 1.6;
+}
+
+.rezept-detail p {
+  text-align: left;
+  width: 90%;
+  margin: 1rem auto;
+  line-height: 1.6;
+}
+
+.back-link {
+  color: black;
+}
+
+.fav-container {
+  text-align: right;
+  margin: 0 2rem 1rem 0;
+}
+
+.fav-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.fav-btn:hover {
+  transform: scale(1.2);
+}
+
+.fav-btn.active {
+  color: red;
+  transform: scale(1.3);
+}
+.fav-text {
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.fav-text.active {
+  color: #cb8c00; /* optional schöner Effekt */
+}
+
+/* 3 Karten */
+#fav-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tablet: 2 Karten */
+@media (max-width: 900px) {
+  #fav-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Handy: 1 Karte */
+@media (max-width: 600px) {
+  #fav-list {
+    grid-template-columns: 1fr;
+  }
 }
 
