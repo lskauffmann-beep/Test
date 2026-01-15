@@ -1,14 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
+async function loadFavs() {
+  const res = await fetch("http://127.0.0.1:3000/api/favs");
+  const data = await res.json();
+  return data.favs || [];
+}
 
+document.addEventListener("DOMContentLoaded", async () => {
   const favList = document.getElementById("fav-list");
-  const favs = JSON.parse(localStorage.getItem("favs") || "[]");
+
+  // Favoriten jetzt vom SERVER holen (statt localStorage)
+  const favs = await loadFavs();
 
   if (favs.length === 0) {
     favList.innerHTML = "<p>Du hast noch keine Lieblingsrezepte gespeichert.</p>";
     return;
   }
 
-  // Alle Rezepte verfügbar machen
+  // Alle Rezepte verfügbar machen (bleibt gleich)
   const rezepte = {
     "zucchini-pasta": {
       name: "Zucchini-Pasta mit Tomatensoße 🍅",
@@ -65,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Rezepte rendern
+  // Rezepte rendern (bleibt gleich)
   favList.innerHTML = bekannteFavs
     .map(id => {
       const r = rezepte[id];
@@ -78,4 +85,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .join("");
 });
-
